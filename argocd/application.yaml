@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hexagonal-arch-argo-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/mymborrini/hexagonal-arch-config.git
+    chart: hexagonal-arch
+
+  destination:
+    # Since we run kubernetes in the same cluster we can simply leave the default one
+    server: https://kubernetes.default.svc
+    namespace: hexagonal-arch
+
+
+  syncPolicy:
+    syncOptions:
+      # We want argocd to configure automatically the namespace in case it does not exists
+      - CreateNamespace=true
+
+    # We want argocd to automatically sync any changes in the git repository
+    automated:
+      # Enable automatic self-healing, if I made any changes manually it simply will be cancelled by
+      # argo which will bring the desired state again
+      selfHeal: true
+
+      # We want argocd to delete old components
+      prune: true

@@ -131,3 +131,5 @@ Q.idea/sonarlint/securityhotspotstore/a/5/a5cc2925ca8258af241be7e5b0381edf302663
 Q.idea/sonarlint/securityhotspotstore/4/9/4962792d7df667e5597598b809cb510be722c2ed,5\c\5c1e2c6f7e8eeeb5a4957bea8e40736d8b524ffb
 Å
 Q.idea/sonarlint/securityhotspotstore/4/9/49149ba45c40e1698863219f157a646e6cf797d4,6\1\611bb63e12d31955a79ad8e071e00bdf7da34680
+G
+argocd/application.yaml,2\9\29a41ac34a0a30691ff08c180d8b6f4c201acbdb
