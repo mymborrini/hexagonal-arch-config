@@ -34,9 +34,9 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{- define "alpha.serviceName"}}
-{{- default .Chart.Name .Values.alpha.name "service" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" .Values.alpha.name "service" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{- define "alpha.configMapName"}}
-{{- default .Chart.Name .Values.alpha.name "env" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" .Values.alpha.name "env" | trunc 63 | trimSuffix "-" }}
 {{- end }}

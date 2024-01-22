@@ -2,7 +2,7 @@
 Expand the name of the chart.
 */}}
 {{- define "db.name" -}}
-{{- default .Chart.Name .Values.db.name | trunc 63 | trimSuffix "-" }}
+{{- default .Values.db.name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 
@@ -34,9 +34,9 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{- define "db.serviceName"}}
-{{- default .Values.db.name "service" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" .Values.db.name "service" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{- define "db.configMapName"}}
-{{- default .Chart.Name .Values.db.name "env" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" .Values.db.name "env" | trunc 63 | trimSuffix "-" }}
 {{- end }}
