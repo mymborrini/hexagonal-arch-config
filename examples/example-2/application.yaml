@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/mymborrini/hexagonal-arch-config.git
+    repoURL: "ssh://git@github.com/mymborrini/hexagonal-arch-config.git"
     targetRevision: k8s/kustomize
     path: environments/staging/app
   destination:
