@@ -2,7 +2,7 @@
 namespace: alpha-staging
 replicas:
   - name: alpha-dep
-    count: 2
+    count: 1
 images:
   - name: mborrini/hexagonal-arch
     newTag: latest
