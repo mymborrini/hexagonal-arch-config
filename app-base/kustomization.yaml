@@ -7,5 +7,5 @@ metadata:
   name: custom-alpha
 resources:
   - namespace.yaml
-  - alpha/alpha-cm.yaml
-  - db/db-cm.yaml
+  - alpha/*
+  - db/*
