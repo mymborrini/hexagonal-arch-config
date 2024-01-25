@@ -1,11 +1,9 @@
-# We must specify which file can be overwrite in each environemt
-
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: custom-alpha
 resources:
-  - namespace.yaml
-  - alpha
-  - db
+  - alpha-cm.yaml
+  - alpha-dep.yaml
+  - alpha-svc.yaml
