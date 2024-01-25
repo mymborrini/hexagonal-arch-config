@@ -5,5 +5,5 @@ metadata:
 data:
   SPRING_DATASOURCE_USERNAME: "postgres"
   SPRING_DATASOURCE_PASSWORD: "postgres123"
-  SPRING_DATASOURCE_URL: "jdbc:postgresql://psql15-svc/postgres"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://psql15-svc:5432/postgres"
   
