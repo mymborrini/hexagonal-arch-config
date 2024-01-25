@@ -7,7 +7,7 @@ spec:
     app: psql15
   ports:
     - protocol: TCP
-      port: 80
+      port: 5432
       targetPort: 5432
   type: ClusterIP
   
