@@ -8,5 +8,3 @@ images:
     newTag: latest
 resources:
   - ../../../app-base
-  - ../../../app-base/alpha
-  - ../../../app-base/db
