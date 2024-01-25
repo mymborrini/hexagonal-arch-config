@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpha-dep
+  labels:
+    app: alpha-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpha
+  template:
+    metadata:
+      name: alpha
+      labels:
+        app: alpha
+    spec:
+      containers:
+        - name: alpha
+          image: mborrini/hexagonal-arch
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: alpha-cm
+      restartPolicy: Always
+
+---
+
+
+      

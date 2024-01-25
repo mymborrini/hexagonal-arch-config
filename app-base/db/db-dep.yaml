@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psql15-dep
+  labels:
+    app: psql15-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psql15
+  template:
+    metadata:
+      name: psql15
+      labels:
+        app: psql15
+    spec:
+      containers:
+        - name: psql15
+          image: postgres:15
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: psql15-cm
+      restartPolicy: Always
+
+      
