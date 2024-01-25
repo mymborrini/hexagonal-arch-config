@@ -1,0 +1,7 @@
+---
+image:
+  tag: "v0.12.2"
+
+# This will enabled prometheus metrics
+metrics:
+  enabled: true

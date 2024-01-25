@@ -1,0 +1,15 @@
+---
+# Update argocd to the most recent version
+global:
+  image:
+    tag: "v2.8.9"
+
+# Disable TLS, tipically it is preferrable to use ingress and terminate tls at the ingress level
+# rather than the argo cd service as well
+server:
+  extraArgs:
+    - --insecure
+
+
+
+
