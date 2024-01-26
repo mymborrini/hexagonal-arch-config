@@ -1,0 +1,35 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alpha-app
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: mborrini/hexagonal-arch:~v0.4
+spec:
+  project: default
+  source:
+    repoURL: "ssh://git@github.com/mymborrini/hexagonal-arch-config.git"
+    targetRevision: k8s/kustomize
+    path: app-chart
+    helm:
+      parameters:
+        - name: "alpha.deploy.replicaCount"
+          value: "2"
+          # this will be the initial value, once the image updater find a new 0.4 version it will use it
+        - name: "alpha.deploy.image.tag"
+          value: "v0.1.0"
+        - name: "namespace.name"
+          value: "alpha-helm"
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
