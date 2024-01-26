@@ -23,3 +23,5 @@ automatically updated at every patch version so from passing by version v0.1.0 t
 it because a new commit is read in the gitops.repo. This is really in gitops spirit to save from disaster recovering
 
 - Example-3: Now let's use an image which is protected
+
+- Example-4: Now let's use helm chart

@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "db.name" . }}
-  namespace: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace.name }}
   labels:
     {{- include "db.labels" . | nindent 4 }}
 spec:
