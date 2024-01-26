@@ -1,0 +1,18 @@
+{{- if .Values.alpha.service.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "alpha.serviceName" . }}
+  namespace: {{ .Chart.Name }}
+  labels:
+    {{- include "alpha.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.alpha.service.type }}
+  ports:
+    - port: {{ .Values.alpha.service.port }}
+      targetPort: {{ .Values.alpha.name }}-http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "alpha.selectorLabels" . | nindent 4 }}
+{{- end }}
