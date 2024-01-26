@@ -44,3 +44,7 @@ build/
 **/*.lock.hcl
 **/*.tfstate
 **/*.tfstate.backup
+
+
+# Secret
+examples/repo-secret.yaml
