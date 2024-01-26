@@ -25,3 +25,14 @@ it because a new commit is read in the gitops.repo. This is really in gitops spi
 - Example-3: Now let's use an image which is protected
 
 - Example-4: Now let's use helm chart
+
+Sealed Secret
+-
+
+Sealed secret is a way to encript your secret, this way we can update our repo-secret on github since it's
+encrypted
+Once installed with terraform. And installed the client in your wm To encrypt a secret to it this way
+
+$ kubeseal -f .\repo-secret.yaml -w sealed-repo-secret.yaml --controller-name sealed-secrets
+
+Remember the secret is specific for the cluster you cannot copy and paste the secret to each cluster you have
