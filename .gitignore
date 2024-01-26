@@ -38,13 +38,7 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### Terraform
-
-**/.terraform
-**/*.lock.hcl
-**/*.tfstate
-**/*.tfstate.backup
-
 
 # Secret
 examples/repo-secret.yaml
+sealed-secret
