@@ -7,6 +7,7 @@ metadata:
   labels:
     {{- include "alpha.labels" . | nindent 4 }}
 spec:
+  replicas: {{ .Values.alpha.deploy.replicaCount }}
   selector:
     matchLabels:
       {{- include "alpha.selectorLabels" . | nindent 6 }}
