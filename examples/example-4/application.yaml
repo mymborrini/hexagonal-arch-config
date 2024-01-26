@@ -5,7 +5,8 @@ metadata:
   name: alpha-app
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: mborrini/hexagonal-arch:~v0.4
+    argocd-image-updater.argoproj.io/image-list: alpha=mborrini/hexagonal-arch:~v0.4
+    argocd-image-updater.argoproj.io/alpha.helm.image-tag: alpha.deploy.image.tag
 spec:
   project: default
   source:
