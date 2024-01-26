@@ -42,3 +42,6 @@ build/
 # Secret
 examples/repo-secret.yaml
 sealed-secret
+
+# Terraform
+**/.terraform
