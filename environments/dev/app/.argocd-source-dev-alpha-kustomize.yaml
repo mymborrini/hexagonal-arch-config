@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - mborrini/hexagonal-arch@sha256:5bd243d0bfc2398e9c894d5eb040fe28bcee3ca81715989782b801bc602c1ec0
