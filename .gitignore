@@ -41,7 +41,8 @@ build/
 
 # Secret
 examples/repo-secret.yaml
-sealed-secret
+sealed-secret-terraform
+istio-terraform
 
 # Terraform
 **/.terraform

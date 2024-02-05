@@ -1,0 +1,10 @@
+---
+namespace: alpha-dev
+replicas:
+  - name: alpha-dep
+    count: 1
+images:
+  - name: mborrini/hexagonal-arch
+    newTag: latest
+resources:
+  - ../../../app-base

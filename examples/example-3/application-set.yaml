@@ -1,0 +1,45 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: alpha-set
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: dev
+            strategy: digest
+            tag: latest
+            project: default
+          - name: staging
+            strategy: semver
+            project: default
+            tag: '~v0.3'
+  template:
+    metadata:
+      name: '{{name}}-alpha-kustomize'
+      namespace: argocd
+      annotations:
+        argocd-image-updater.argoproj.io/image-list: 'alpha=mborrini/hexagonal-arch:{{tag}}'
+        argocd-image-updater.argoproj.io/write-back-method: git
+        argocd-image-updater.argoproj.io/alpha.update-strategy: '{{strategy}}'
+
+    spec:
+      project: '{{project}}'
+      source:
+        repoURL: "ssh://git@github.com/mymborrini/hexagonal-arch-config.git"
+        targetRevision: k8s/kustomize
+        path: 'environments/{{name}}/app'
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+        syncOptions:
+          - Validate=true
+          - CreateNamespace=true
+          - PrunePropagationPolicy=foreground
+          - PruneLast=true

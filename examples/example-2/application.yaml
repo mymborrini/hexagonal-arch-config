@@ -5,8 +5,9 @@ metadata:
   name: alpha-kustomize
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: mborrini/hexagonal-arch:~v0.3
+    argocd-image-updater.argoproj.io/image-list: alpha=mborrini/hexagonal-arch:latest
     argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/alpha.update-strategy: digest
 spec:
   project: default
   source:
